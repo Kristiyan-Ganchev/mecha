@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c6nkxe03uudwp"]
+
+[ext_resource type="Script" uid="uid://tje3criim7se" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://di3ueqcp8klfc" path="res://Scripts/input.gd" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://d3b7rbvcljghm" path="res://Scripts/model.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://tbx78rk64cmb" path="res://Scripts/idle.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://hatyd4msqxkk" path="res://Scripts/walk.gd" id="5_x3wgy"]
+[ext_resource type="Script" uid="uid://bvn6jeyleq3tv" path="res://Scripts/jump.gd" id="6_3smsa"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f60y1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
+
+[node name="Player" type="CharacterBody3D" unique_id=121112671]
+script = ExtResource("1_v0iea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1313319195]
+mesh = SubResource("CapsuleMesh_f60y1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=142601794]
+shape = SubResource("CapsuleShape3D_f60y1")
+
+[node name="Input" type="Node" parent="." unique_id=405038202]
+script = ExtResource("2_cvnsp")
+
+[node name="Model" type="Node" parent="." unique_id=1899229042]
+script = ExtResource("3_6t5aa")
+
+[node name="Idle" type="Node" parent="Model" unique_id=880023493]
+script = ExtResource("4_vgqql")
+
+[node name="Walk" type="Node" parent="Model" unique_id=1295028131]
+script = ExtResource("5_x3wgy")
+
+[node name="Jump" type="Node" parent="Model" unique_id=1731228139]
+script = ExtResource("6_3smsa")
