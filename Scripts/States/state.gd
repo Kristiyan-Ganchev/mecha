@@ -17,7 +17,9 @@ static var state_priority: Dictionary ={
 	"sprintJump" : 10,
 	"midair" : 10,
 	"walkLanding" : 10,
-	"sprintLanding" : 10
+	"sprintLanding" : 10,
+	"light1" : 15,
+	"light2" : 15
 }
 
 static func state_priority_sort(a: String, b: String):
@@ -38,6 +40,13 @@ func on_enter_state():
 	
 func on_exit_state():
 	pass
+
+func check_combos(input : InputPackage):
+	var available_combos = get_children()
+	for combo : Combo in available_combos:
+		if combo.is_triggered(input):
+			has_queued_state = true
+			queued_state = combo.triggered_move
 
 func mark_enter_state():
 	enter_state_time = Time.get_unix_time_from_system()

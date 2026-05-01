@@ -3,7 +3,7 @@ class_name WalkLanding
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-const TRANSITION_TIMING = 0.2
+const TRANSITION_TIMING = 0.9
 
 
 func _ready():

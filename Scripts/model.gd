@@ -4,6 +4,9 @@ class_name PlayerModel
 @onready var player = $".."
 @onready var skeleton: Skeleton3D = $Skeleton3D
 @onready var animator: AnimationPlayer = $AnimationPlayer
+@onready var combat: HumanoidCombat = $"../Combat"
+ 
+@onready var active_weapon : Weapon = $Skeleton3D/BoneAttachment3D/WeaponSocket/Unarmed as Unarmed
 
 var current_state:  State
 
@@ -15,15 +18,18 @@ var current_state:  State
 	"sprintJump" : $States/SprintJump,
 	"midair" : $States/Midair,
 	"walkLanding" : $States/WalkLanding,
-	"sprintLanding" : $States/SprintLanding
+	"sprintLanding" : $States/SprintLanding,
+	"light1" : $States/Light1,
+	"light2" : $States/Light2
 }
 
 func _ready() -> void:
-	current_state= states["idle"]
+	current_state= states["midair"]
 	for state in states.values():
 		state.player = player
 
 func update(input: InputPackage, delta: float):
+	input = combat.translate_combat_actions(input)
 	var relevance = current_state.check_relevance(input)
 	if relevance != "okay":
 		switch_to(relevance)

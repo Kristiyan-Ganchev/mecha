@@ -8,6 +8,9 @@ func _ready() -> void:
 	animation = "SprintAnimation"
 
 func check_relevance(input: InputPackage) -> String:
+	if not player.is_on_floor():
+		return "midair"
+		
 	input.actions.sort_custom(state_priority_sort)
 	if input.actions[0] == "sprint":
 		return "okay"

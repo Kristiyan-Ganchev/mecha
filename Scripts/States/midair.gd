@@ -7,8 +7,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var root_attachment: BoneAttachment3D = $"../../Skeleton3D/Root"
 
 
-var landing_height : float = 1.163
-
+var landing_height : float = 1.5
 
 func _ready():
 	animation = "FallAnimation"

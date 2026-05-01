@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://di3ueqcp8klfc" path="res://Scripts/input.gd" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://bylhkp16qxnqt" path="res://Scenes/HumanoidModel.tscn" id="4_vgqql"]
 [ext_resource type="Script" uid="uid://1kgpmvire6uf" path="res://Scripts/camera.gd" id="5_fkybt"]
+[ext_resource type="Script" uid="uid://bnqmkr6rgqx3j" path="res://Scripts/combat.gd" id="6_x3wgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -12,6 +13,7 @@
 script = ExtResource("1_v0iea")
 
 [node name="CameraMount" type="SpringArm3D" parent="." unique_id=1578637532]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 spring_length = 3.0
 script = ExtResource("5_fkybt")
 
@@ -27,3 +29,7 @@ script = ExtResource("2_cvnsp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=142601794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_f60y1")
+
+[node name="Combat" type="Node" parent="." unique_id=494468149]
+script = ExtResource("6_x3wgy")
+metadata/_custom_type_script = "uid://bnqmkr6rgqx3j"
