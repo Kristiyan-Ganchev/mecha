@@ -1,18 +1,15 @@
 extends State
-class_name Walk
+class_name Sprint
 
-const SPEED = 5.0
+const SPEED = 10.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
-	animation = "WalkAnimation"
+	animation = "SprintAnimation"
 
 func check_relevance(input: InputPackage) -> String:
-	if not player.is_on_floor():
-		return "midair"
-		
 	input.actions.sort_custom(state_priority_sort)
-	if input.actions[0] == "walk":
+	if input.actions[0] == "sprint":
 		return "okay"
 	return input.actions[0]
 
